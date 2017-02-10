@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Cars CollectionVC-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="CarsCollectionVC" customModule="CarsCollectionView" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="CZP-Kv-56k">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <color key="backgroundColor" red="0.90425685510129417" green="0.999451438770671" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="9MJ-Aa-nul">
+                                    <size key="itemSize" width="118" height="118"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CarCellID" id="UHb-UV-1CR" customClass="CarCell" customModule="CarsCollectionView" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="118" height="118"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="118" height="118"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="4hd-Ub-aKE">
+                                                    <rect key="frame" x="5" y="0.0" width="108" height="88"/>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vwJ-tG-Vqa">
+                                                    <rect key="frame" x="5" y="93" width="108" height="25"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </view>
+                                        <constraints>
+                                            <constraint firstAttribute="bottom" secondItem="4hd-Ub-aKE" secondAttribute="bottom" constant="30" id="9PB-Q0-k9b"/>
+                                            <constraint firstItem="vwJ-tG-Vqa" firstAttribute="leading" secondItem="4hd-Ub-aKE" secondAttribute="leading" id="YXr-3D-nyM"/>
+                                            <constraint firstAttribute="trailing" secondItem="4hd-Ub-aKE" secondAttribute="trailing" constant="5" id="aUZ-Ei-xM8"/>
+                                            <constraint firstAttribute="bottom" secondItem="vwJ-tG-Vqa" secondAttribute="bottom" id="glJ-S3-6W6"/>
+                                            <constraint firstItem="vwJ-tG-Vqa" firstAttribute="trailing" secondItem="4hd-Ub-aKE" secondAttribute="trailing" id="in4-HF-D3b"/>
+                                            <constraint firstItem="vwJ-tG-Vqa" firstAttribute="top" secondItem="4hd-Ub-aKE" secondAttribute="bottom" constant="5" id="rAD-79-m8O"/>
+                                            <constraint firstItem="4hd-Ub-aKE" firstAttribute="top" secondItem="UHb-UV-1CR" secondAttribute="top" id="to1-GJ-Wfu"/>
+                                            <constraint firstItem="4hd-Ub-aKE" firstAttribute="leading" secondItem="UHb-UV-1CR" secondAttribute="leading" constant="5" id="zLW-uB-sJG"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="carImage" destination="4hd-Ub-aKE" id="Coa-wP-03J"/>
+                                            <outlet property="carManufacturer" destination="vwJ-tG-Vqa" id="RZy-jn-bc6"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="CZP-Kv-56k" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="GmE-ps-q5R"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="CZP-Kv-56k" secondAttribute="bottom" id="Hec-HV-g2S"/>
+                            <constraint firstItem="CZP-Kv-56k" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="jZ5-Pn-q0i"/>
+                            <constraint firstAttribute="trailing" secondItem="CZP-Kv-56k" secondAttribute="trailing" id="xZH-MU-q1Y"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="CarsCollection" destination="CZP-Kv-56k" id="Nqn-Iq-2jV"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="117.59999999999999" y="122.78860569715144"/>
+        </scene>
+    </scenes>
+</document>
