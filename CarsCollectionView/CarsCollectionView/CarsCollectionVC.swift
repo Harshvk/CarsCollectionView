@@ -10,10 +10,10 @@ import UIKit
 
 class CarsCollectionVC: UIViewController {
 
-    
+    //Making outlet of CollectionView
     @IBOutlet weak var CarsCollection: UICollectionView!
     
-    
+    //Defining Data
     var CarData : [[String:Any]] = [["Name" : "Ford" , "Color" : UIColor.blue],
                                      ["Name" : "Porsche" , "Color" : UIColor.yellow],
                                      ["Name" : "Mustang" , "Color" : UIColor.red],
@@ -28,26 +28,30 @@ class CarsCollectionVC: UIViewController {
     ]
 
     
+    //MARK: View Life Cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        //Assigning dataSource and delegate to collection view
+        
         CarsCollection.dataSource = self
         
         CarsCollection.delegate = self
         
-        
+        //Setting up FlowLayout
         let flowlayout = UICollectionViewFlowLayout()
         
         flowlayout.minimumLineSpacing = 15
         
         flowlayout.minimumInteritemSpacing = 2
         
+        flowlayout.scrollDirection = .horizontal
+        
         CarsCollection.collectionViewLayout = flowlayout
         
         
         
-        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
@@ -57,9 +61,10 @@ class CarsCollectionVC: UIViewController {
     
 
 }
-
+//MARK: CollectionDelegate , CollectionDatasource and FlowLayoutDelegate
 extension CarsCollectionVC : UICollectionViewDataSource ,UICollectionViewDelegate ,UICollectionViewDelegateFlowLayout{
     
+    //Defining No of Sections
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int{
         
         return CarData.count
@@ -67,17 +72,25 @@ extension CarsCollectionVC : UICollectionViewDataSource ,UICollectionViewDelegat
         
     }
     
+    //Defining Cell for each item
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell{
         
+        //Making Object of Cell
     guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CarCellID", for: indexPath) as? CarCell
     else{ fatalError("Cell Not Found") }
         
+        //Converting data from JSON to CarModel
         let car = CarModel(withJSON: CarData[indexPath.item])
+        
+        //Assigning data to cells
         cell.configureCell(withCar: car)
+        
+        
         return cell
         
     }
     
+    //Defining size of Individual Cell
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize{
         
         if indexPath.item == 0{
@@ -98,6 +111,7 @@ extension CarsCollectionVC : UICollectionViewDataSource ,UICollectionViewDelegat
 
 }
 
+//MARK: Data Conversion from JSON to CarModel
 class CarModel {
     
     var color : UIColor!
@@ -130,6 +144,8 @@ class CarCell : UICollectionViewCell {
         
         
     }
+    
+    //Function For Adding data to cell
     func configureCell(withCar car: CarModel){
         
        carImage.backgroundColor = car.color
